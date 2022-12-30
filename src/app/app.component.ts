@@ -1,20 +1,28 @@
+import { Component } from '@angular/core';
+
+@Component({
+  selector: 'app-root',
+  templateUrl: './app.component.html',
+  styleUrls: ['./app.component.css']
+})
 export class AppComponent {
-  usuario = 'Angular';
-  password = '123456';
 
-  loginForm = {
-    usuario: '',
-    password: ''
-  }
+  correcto: boolean = false;
+  incorrecto: boolean = false;
+  user = '';
+  pass = '';
+  usuario: string = 'Carlos';
+  password: string = '123456';
 
-  onSubmit() {
-    // Compara los datos del formulario con los datos de la clase
-    if (this.loginForm.usuario === this.usuario && this.loginForm.password === this.password) {
-      // Si son iguales, muestra un mensaje de éxito
-      console.log('Inicio de sesión exitoso');
+  verificarDatos() {
+    if (this.user === this.usuario && this.pass === this.password) {
+      this.correcto = true;
+      this.incorrecto = false;
     } else {
-      // Si no son iguales, muestra un mensaje de error
-      console.log('Error en el inicio de sesión');
+      this.incorrecto = true;
+      this.correcto = false;
     }
+
   }
 }
+
